@@ -1,0 +1,248 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.pogita</groupId>
+  <artifactId>bus-analysis</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
+
+  <name>bus-analysis</name>
+  <url>http://maven.apache.org</url>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <kotlin.version>1.1.4</kotlin.version>
+    <junit.version>4.12</junit.version>
+    <java.version>1.8</java.version>
+    <geotools.version>18.0</geotools.version>
+  </properties>
+
+  <repositories>
+    <repository>
+      <id>maven2-repository.dev.java.net</id>
+      <name>Java.net repository</name>
+      <url>http://download.java.net/maven/2</url>
+    </repository>
+    <repository>
+      <id>osgeo</id>
+      <name>Open Source Geospatial Foundation Repository</name>
+      <url>http://download.osgeo.org/webdav/geotools/</url>
+    </repository>
+  </repositories>
+
+  <dependencies>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-stdlib</artifactId>
+      <version>${kotlin.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.jetbrains.kotlin</groupId>
+      <artifactId>kotlin-test-junit</artifactId>
+      <version>${kotlin.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!--start 大数据工具 -->
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-client</artifactId>
+      <version>2.7.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-common</artifactId>
+      <version>2.7.3</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hadoop</groupId>
+      <artifactId>hadoop-hdfs</artifactId>
+      <version>2.7.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase</artifactId>
+      <version>1.2.6</version>
+      <type>pom</type>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-client</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.hbase</groupId>
+      <artifactId>hbase-common</artifactId>
+      <version>1.2.6</version>
+    </dependency>
+    <!--end 大数据工具 -->
+
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-log4j12</artifactId>
+      <version>1.7.13</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.jfinal</groupId>
+      <artifactId>jfinal</artifactId>
+      <version>3.0</version>
+    </dependency>
+    <dependency>
+      <groupId>mysql</groupId>
+      <artifactId>mysql-connector-java</artifactId>
+      <version>5.1.39</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-pool2</artifactId>
+      <version>2.4.2</version>
+    </dependency>
+    <dependency>
+      <groupId>de.ruedigermoeller</groupId>
+      <artifactId>fst</artifactId>
+      <version>2.47</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>fastjson</artifactId>
+      <version>1.2.4</version>
+    </dependency>
+
+    <dependency>
+      <groupId>redis.clients</groupId>
+      <artifactId>jedis</artifactId>
+      <version>2.9.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.alibaba</groupId>
+      <artifactId>druid</artifactId>
+      <version>1.0.16</version>
+    </dependency>
+
+    <!--start 数据分析库 -->
+    <dependency>
+      <groupId>tw.edu.ntu.csie</groupId>
+      <artifactId>libsvm</artifactId>
+      <version>3.17</version>
+    </dependency>
+
+    <dependency>
+      <groupId>nz.ac.waikato.cms.weka</groupId>
+      <artifactId>weka-dev</artifactId>
+      <version>3.9.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math3</artifactId>
+      <version>3.6.1</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.commons</groupId>
+      <artifactId>commons-math</artifactId>
+      <version>2.2</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.github.virtuald</groupId>
+      <artifactId>curvesapi</artifactId>
+      <version>1.05</version>
+    </dependency>
+    <!--end 数据分析库 -->
+
+    <dependency>
+      <groupId>com.squareup.okhttp</groupId>
+      <artifactId>okhttp</artifactId>
+      <version>2.7.5</version>
+    </dependency>
+
+    <!--start 地理空间分析库 -->
+    <dependency>
+      <groupId>com.vividsolutions</groupId>
+      <artifactId>jts</artifactId>
+      <version>1.13</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-referencing</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-swing</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-epsg-wkt</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-api</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-shapefile</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>org.geotools</groupId>
+      <artifactId>gt-graph</artifactId>
+      <version>${geotools.version}</version>
+    </dependency>
+
+    <!--end 地理空间分析库 -->
+  </dependencies>
+
+  <build>
+    <sourceDirectory>src/main/kotlin</sourceDirectory>
+    <testSourceDirectory>src/test/kotlin</testSourceDirectory>
+
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>1.8</source>
+          <target>1.8</target>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jetbrains.kotlin</groupId>
+        <artifactId>kotlin-maven-plugin</artifactId>
+        <version>${kotlin.version}</version>
+        <executions>
+          <execution>
+            <id>compile</id>
+            <phase>compile</phase>
+            <goals>
+              <goal>compile</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>test-compile</id>
+            <phase>test-compile</phase>
+            <goals>
+              <goal>test-compile</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
+</project>

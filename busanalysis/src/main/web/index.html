@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no, width=device-width">
+    <title>折线、多边形、圆</title>
+    <link rel="stylesheet" href="http://cache.amap.com/lbs/static/main1119.css"/>
+    <script src="http://webapi.amap.com/maps?v=1.4.0&key=f27786d53a4ceac81737241617027367"></script>
+    <script type="text/javascript" src="http://cache.amap.com/lbs/static/addToolbar.js"></script>
+    <script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+    <style>
+        #container {
+            height: 80%;
+            width: 100%;
+            margin: 0px auto;
+        }
+    </style>
+</head>
+<body>
+<div id="container"></div>
+<script>
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        center: [113.75046773163753, 23.055426696904547],
+        zoom: 12
+    });
+    $.getJSON("data/tracing-points.json", function (data){
+        var lineArr = new Array(data.length)
+        $.each(data, function(index,value){
+            var lonLat = new Array(2)
+            lonLat[0] = value["lon"]
+            lonLat[1] = value["lat"]
+            lineArr[index] = lonLat;
+        });
+        var polyline = new AMap.Polyline({
+            path: lineArr,          //设置线覆盖物路径
+            strokeColor: "#239aff", //线颜色
+            strokeOpacity: 2,       //线透明度
+            strokeWeight: 6,        //线宽
+            strokeStyle: "solid",   //线样式
+            strokeDasharray: [10, 5] //补充线样式
+        });
+        polyline.setMap(map)
+        //    var stations = [{lon:113.76827154519931, lat:22.98205217960069}]
+        //    for (var i=0;i<stations.size();i++){
+        //        var lonlat = new AMap.LngLat(113.76827154519931,22.98205217960069)
+        //        var station = new AMap.Circle({
+        //            center:lonlat,
+        //            zIndex:15,
+        //            strokeColor:"#0a0a0a",
+        //            strokeWeight:2,
+        //            fillOpacity:1,
+        //            fillColor:"#ffffff",
+        //            radius:8
+        //        });
+        //        station.setMap(map);
+        //    }
+    })
+
+
+</script>
+</body>
+</html>
