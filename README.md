@@ -4,7 +4,7 @@
 
 # 启动的步骤
 ## 1.确保hadoop启动与存取定位数据源
->启动方式参照hadoop集群实战pdf文档的第3.2章节——启动hadoop。
+>启动方式参照[hadoop集群实战pdf文档](https://my.oschina.net/song27/blog/1587198)的第3.2章节——启动hadoop。
 启动好之后，上传文件到hdfs中去。
 ```
 hadoop fs -put /root/hadoop-data/22lu.csv /line/test1/
